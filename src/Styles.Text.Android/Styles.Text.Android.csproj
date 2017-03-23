@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.projitems" Label="Shared" Condition="Exists('..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.projitems')" />
   <Import Project="..\packages\NuGet.Build.Packaging.0.1.157-dev\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.157-dev\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -56,6 +55,10 @@
     <ProjectReference Include="..\Styles.Text.Shared\Styles.Text.Shared.csproj">
       <Project>{50AE51CA-5F98-4643-BB5C-3910912F4C0C}</Project>
       <Name>Styles.Text.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.csproj">
+      <Project>{F7DE4405-3FCD-497D-B1B1-BC8351C5804B}</Project>
+      <Name>Styles.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

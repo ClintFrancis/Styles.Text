@@ -5,7 +5,6 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{50AE51CA-5F98-4643-BB5C-3910912F4C0C}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
     <RootNamespace>Styles.Text</RootNamespace>
     <AssemblyName>Styles.Text.Shared</AssemblyName>
@@ -17,7 +16,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;PORTABLE;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -31,7 +30,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ITextStyle.cs" />
     <Compile Include="TextStyleParameters.cs" />
+    <Compile Include="HtmlTextStyleParser.cs" />
+    <Compile Include="CssTextStyleParser.cs" />
+    <Compile Include="TextStyleBase.cs" />
+    <Compile Include="ViewStyleBase.cs" />
+    <Compile Include="StyleManager.cs" />
   </ItemGroup>
-  <Import Project="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.projitems" Label="Shared" Condition="Exists('..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.projitems')" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.csproj">
+      <Project>{F7DE4405-3FCD-497D-B1B1-BC8351C5804B}</Project>
+      <Name>Styles.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

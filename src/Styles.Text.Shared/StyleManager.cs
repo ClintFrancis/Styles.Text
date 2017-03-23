@@ -8,9 +8,6 @@ namespace Styles.Text
 		Dictionary<object, IViewStyle> _views;
 		ITextStyle _instance;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="TextStyles.iOS.StyleManager"/> class.
-		/// </summary>
 		public StyleManager (ITextStyle instance)
 		{
 			_instance = instance;
@@ -18,15 +15,6 @@ namespace Styles.Text
 			_instance.StylesChanged += TextStyle_Instance_StylesChanged;
 		}
 
-		/// <summary>
-		/// Creates and styles a new text container (UIlabel, UITextView, UITextField)
-		/// </summary>
-		/// <param name="styleID">The CSS selector name for the style</param>
-		/// <param name="text">Text to display. Plain or with html tags</param>
-		/// <param name="customTags">A list of custom <c>CSSTagStyle</c> instances that set the styling for the html</param>
-		/// <param name="useExistingStyles">Existing CSS styles willl be used If set to <c>true</c></param>
-		/// <param name="encoding">String encoding type</param>
-		/// <typeparam name="T">Text container type (UIlabel, UITextView, UITextField)</typeparam>
 		public T Create<T> (string styleID, string text = "", List<CssTag> customTags = null, bool useExistingStyles = true, bool enableHtmlEditing = false)
 		{
 			var target = _instance.Create<T> (styleID, text, customTags, useExistingStyles);
@@ -38,16 +26,6 @@ namespace Styles.Text
 			return target;
 		}
 
-		// TODO setup as an abstract method
-		/// <summary>
-		/// Adds an existing text container (UILabel, UITextView, UITextField) to the StyleManager and styles it
-		/// </summary>
-		/// <param name="target">Target text container</param>
-		/// <param name="styleID">The CSS selector name for the style</param>
-		/// <param name="text">Text to display. Plain or with html tags</param>
-		/// <param name="customTags">A list of custom <c>CSSTagStyle</c> instances that set the styling for the html</param>
-		/// <param name="useExistingStyles">Existing CSS styles willl be used If set to <c>true</c></param>
-		/// <param name="encoding">String encoding type</param>
 		public void Add<T> (T target, string styleID, string text = "", List<CssTag> customTags = null, bool useExistingStyles = true, bool enableHtmlEditing = false)
 		{
 			// Set the base style for the field
@@ -75,11 +53,6 @@ namespace Styles.Text
 			#endif
 		}
 
-		/// <summary>
-		/// Updates the text of a target text container (UILabel, UITextView, UITextField)
-		/// </summary>
-		/// <param name="target">Target text container</param>
-		/// <param name="text">Text</param>
 		public void UpdateText (object target, string text)
 		{
 			var viewStyle = _views [target];

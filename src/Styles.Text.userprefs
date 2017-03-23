@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{141E15BC-6A3A-4A7D-B33C-67C84EA1BE7F}|Default">
   <MonoDevelop.Ide.ItemProperties.Styles.Text.iOS HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Styles.Text.Shared/StyleManagerBase.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Styles.Text.Shared/TextStyle.cs">
     <Files>
-      <File FileName="Styles.Text.iOS/TextStyle.cs" Line="20" Column="3" />
-      <File FileName="Styles.Text.iOS/TextUtils.cs" Line="11" Column="41" />
-      <File FileName="Styles.Text.iOS/ViewStyle.cs" Line="42" Column="34" />
-      <File FileName="Styles.Text.Shared/StyleManagerBase.cs" Line="74" Column="9" />
+      <File FileName="Styles.Text.Shared/StyleManager.cs" Line="30" Column="4" />
+      <File FileName="Styles.Text.iOS/TextStyle.cs" Line="15" Column="3" />
+      <File FileName="Styles.Text.Shared/TextStyle.cs" Line="2" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

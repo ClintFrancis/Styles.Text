@@ -35,6 +35,7 @@
     <Compile Include="TextStyleBase.cs" />
     <Compile Include="ViewStyleBase.cs" />
     <Compile Include="StyleManager.cs" />
+    <Compile Include="TextStyle.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.csproj">

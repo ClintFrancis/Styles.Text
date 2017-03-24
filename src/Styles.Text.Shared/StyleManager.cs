@@ -40,17 +40,13 @@ namespace Styles.Text
 
 		IViewStyle CreateViewStyle<T>(T target, string styleID, string text, List<CssTag> customTags, bool useExistingStyles = true, bool enableHtmlEditing = false)
 		{
-			#if PORTABLE
-			return null;
-			#else
-			IViewStyle viewStyle = new ViewStyle(_instance, target, styleID, text, true)
+			IViewStyle viewStyle = new ViewStyle<T>(_instance, target, styleID, text, true)
 			{
 				CustomTags = customTags,
 				EnableHtmlEditing = enableHtmlEditing
 			};
 
 			return viewStyle;
-			#endif
 		}
 
 		public void UpdateText (object target, string text)

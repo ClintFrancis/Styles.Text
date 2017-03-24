@@ -6,3 +6,7 @@ src/Styles.Text.NuGet/bin
 src/Styles.Text.NuGet/obj
 src/Styles.Text.Shared/bin
 src/Styles.Text.Shared/obj
+samples/TextStyleDemo.Native.iOS/bin
+samples/TextStyleDemo.Native.iOS/obj
+src/Styles.Text.Core/bin
+src/Styles.Text.Core/obj

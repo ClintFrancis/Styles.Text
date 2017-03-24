@@ -8,7 +8,7 @@ using UIKit;
 namespace Styles.iOS
 {
 	[Foundation.Preserve (AllMembers = true)]
-	class ViewStyle : ViewStyleBase<UITextField>, IDisposable
+	class ViewStyle<T> : ViewStyleBase<UITextField>, IViewStyle, IDisposable
 	{
 		public NSAttributedString AttributedValue { get; private set; }
 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\NuGet.Build.Packaging.0.1.193\build\NuGet.Build.Packaging.props" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.193\build\NuGet.Build.Packaging.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50AE51CA-5F98-4643-BB5C-3910912F4C0C}</ProjectGuid>
+    <ProjectGuid>{71919D80-F4BD-4D8B-985D-5D0C4D79DDF3}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
     <RootNamespace>Styles.Text</RootNamespace>
-    <AssemblyName>Styles.Text.Shared</AssemblyName>
+    <AssemblyName>Styles.Text.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
   </PropertyGroup>
@@ -17,7 +17,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;PORTABLE;</DefineConstants>
+    <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -29,25 +29,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ITextStyle.cs" />
-    <Compile Include="TextStyleParameters.cs" />
-    <Compile Include="HtmlTextStyleParser.cs" />
-    <Compile Include="CssTextStyleParser.cs" />
-    <Compile Include="TextStyleBase.cs" />
-    <Compile Include="ViewStyleBase.cs" />
-    <Compile Include="StyleManager.cs" />
-    <Compile Include="IViewStyle.cs" />
-    <Compile Include="ViewStyle.cs" />
+    <Compile Include="TextStyle.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.csproj">
       <Project>{F7DE4405-3FCD-497D-B1B1-BC8351C5804B}</Project>
       <Name>Styles.Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Styles.Text.Shared\Styles.Text.Shared.csproj">
+      <Project>{50AE51CA-5F98-4643-BB5C-3910912F4C0C}</Project>
+      <Name>Styles.Text.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\packages\NuGet.Build.Packaging.0.1.193\build\NuGet.Build.Packaging.targets" Condition="Exists('..\packages\NuGet.Build.Packaging.0.1.193\build\NuGet.Build.Packaging.targets')" />
 </Project>

@@ -1,18 +1,10 @@
-﻿<Properties StartupConfiguration="{141E15BC-6A3A-4A7D-B33C-67C84EA1BE7F}|Default">
-  <MonoDevelop.Ide.ItemProperties.Styles.Text.iOS HideGettingStarted="True" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Styles.Text.Shared/TextStyle.cs">
-    <Files>
-      <File FileName="Styles.Text.Shared/StyleManager.cs" Line="30" Column="4" />
-      <File FileName="Styles.Text.iOS/TextStyle.cs" Line="15" Column="3" />
-      <File FileName="Styles.Text.Shared/TextStyle.cs" Line="2" Column="34" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+﻿<Properties StartupConfiguration="{141E15BC-6A3A-4A7D-B33C-67C84EA1BE7F}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Styles.Text.Android PreferredExecutionTarget="Android.Android_Accelerated_x86" HideGettingStarted="True" />
-  <MonoDevelop.Ide.ItemProperties.Styles.Text.NuGet HideGettingStarted="True" />
+  <MonoDevelop.Ide.ItemProperties.Styles.Text.Android PreferredExecutionTarget="Android.Android_Accelerated_x86" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>

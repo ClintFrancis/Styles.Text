@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Styles.Text</id>
+    <version>1.1.0</version>
+    <authors>Clinton Francis</authors>
+    <owners>Clinton Francis</owners>
+    <licenseUrl>https://github.com/ClintFrancis/Styles/blob/master/LICENSE/</licenseUrl>
+    <projectUrl>https://github.com/ClintFrancis/Styles</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Effortlessly create, manage and style text in Android and iOS using HTML and CSS style sheets</description>
+    <releaseNotes>First Nuget release</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>css xamarin text label html mobile</tags>
+    <dependencies>
+      
+    </dependencies>
+  </metadata>
+  <files>
+      <!--Core-->
+	 <file src="Styles.Text.Shared/bin/Release/Styles.Shared.dll" target="lib/portable-net45+wp80+win8+wpa81/Styles.Shared.dll" />
+     <file src="Styles.Text.Shared/bin/Release/Styles.Text.Shared.dll" target="lib/portable-net45+wp80+win8+wpa81/Styles.Text.Shared.dll" />
+	 <file src="Styles.Text.Core/bin/Release/Styles.Text.Core.dll" target="lib/portable-net45+wp80+win8+wpa81/Styles.Text.Core.dll" />
+
+     <!--Xamarin.iOSUnified-->
+     <file src="Styles.Text.iOS/bin/Release/Styles.dll" target="lib/Xamarin.iOS10/Styles.dll" />
+     <file src="Styles.Text.Shared/bin/Release/Styles.Shared.dll" target="lib/Xamarin.iOS10/Styles.Shared.dll" />
+     <file src="Styles.Text.iOS/bin/Release/Styles.Text.dll" target="lib/Xamarin.iOS10/Styles.Text.dll" />
+	 <file src="Styles.Text.iOS/bin/Release/Styles.Text.Shared.dll" target="lib/Xamarin.iOS10/Styles.Text.Shared.dll" />
+      
+   </files>
+</package>

@@ -1,0 +1,25 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextStyleDemo.iOS", "TextStyleDemo.iOS.csproj", "{ED18D472-84FA-4C32-88BF-B14F8FEB8177}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Release|iPhone.ActiveCfg = Release|iPhone
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Release|iPhone.Build.0 = Release|iPhone
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{ED18D472-84FA-4C32-88BF-B14F8FEB8177}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

@@ -1,104 +1,142 @@
 ﻿using System;
 using System.Collections.Generic;
 using Foundation;
-using Styles.Text;
-using Styles;
 using UIKit;
 
-namespace Styles.iOS
+namespace Styles.Text
 {
-	[Foundation.Preserve (AllMembers = true)]
-	class ViewStyle<T> : ViewStyleBase<UITextField>, IViewStyle, IDisposable
+	[Foundation.Preserve(AllMembers = true)]
+	public class ViewStyle:IViewStyle
 	{
+		public string StyleID { get; private set; }
+
+		public string TextValue { get; private set; }
+
 		public NSAttributedString AttributedValue { get; private set; }
+
+		public List<CssTag> CustomTags { get; set; }
+
+		public UIView Target { get; set; }
+
+		public bool ContainsHtml { get; private set; }
+
+		UITextField _textField;
+
+		string _rawText;
 
 		bool _updateConstraints;
 
 		TextStyle _instance;
 
 		bool _enableHtmlEditing;
-		override public bool EnableHtmlEditing {
+		public bool EnableHtmlEditing
+		{
 			get { return _enableHtmlEditing; }
-			set {
+			set
+			{
 				_enableHtmlEditing = value;
 
-				if (Target != null) {
-					if (value) {
-						Target.EditingChanged += TextEditingChanged;
-						Target.EditingDidBegin += TextEditingStarted;
-						Target.EditingDidEnd += TextEditingEnded;
+				if (_textField != null)
+				{
+					if (value)
+					{
+						_textField.EditingChanged += TextEditingChanged;
+						_textField.EditingDidBegin += TextEditingStarted;
+						_textField.EditingDidEnd += TextEditingEnded;
 
-					} else {
-						Target.EditingChanged -= TextEditingChanged;
-						Target.EditingDidBegin -= TextEditingStarted;
-						Target.EditingDidEnd -= TextEditingEnded;
+					}
+					else
+					{
+						_textField.EditingChanged -= TextEditingChanged;
+						_textField.EditingDidBegin -= TextEditingStarted;
+						_textField.EditingDidEnd -= TextEditingEnded;
 					}
 				}
 			}
 		}
 
-		public ViewStyle(ITextStyle instance, UITextField target, string styleID, string text, bool updateConstraints):base(instance, target, styleID, text)
+		public ViewStyle(ITextStyle instance, UIView target, string styleID, string text, bool updateConstraints)
 		{
+			_instance = instance as TextStyle;
 			_updateConstraints = updateConstraints;
+			_textField = target as UITextField;
+
+			StyleID = styleID;
+			Target = target;
+			UpdateText(text);
 		}
 
-		override public void UpdateText (string value = null)
+		public void UpdateText(string value = null)
 		{
-			if (!String.IsNullOrEmpty (value)) {
+			if (!String.IsNullOrEmpty(value))
+			{
 				_rawText = value;
-				ContainsHtml = (!String.IsNullOrEmpty (value) && Common.MatchHtmlTags.IsMatch (value));
-			} else {
+				ContainsHtml = (!String.IsNullOrEmpty(value) && Common.MatchHtmlTags.IsMatch(value));
+			}
+			else
+			{
 				return;
 			}
 
-			var style = _instance.GetStyle (StyleID);
-			TextValue = TextStyle.ParseString (style, _rawText);
+			var style = _instance.GetStyle(StyleID);
+			TextValue = TextStyle.ParseString(style, _rawText);
 
-			AttributedValue = ContainsHtml ? _instance.CreateHtmlString (TextValue, CustomTags) : _instance.CreateStyledString (style, TextValue);
+			AttributedValue = ContainsHtml ? _instance.CreateHtmlString(TextValue, CustomTags) : _instance.CreateStyledString(style, TextValue);
 		}
 
-		override public void UpdateFrame ()
+		public void UpdateFrame()
 		{
-			var style = _instance.GetStyle (StyleID);
+			var style = _instance.GetStyle(StyleID);
 
 			// Offset the frame if needed
-			if (_updateConstraints && style.LineHeight < 0f) {
-				var heightOffset = style.GetLineHeightOffset ();
+			if (_updateConstraints && style.LineHeight < 0f)
+			{
+				var heightOffset = style.GetLineHeightOffset();
 				var targetFrame = Target.Frame;
-				targetFrame.Height = (nfloat)Math.Ceiling (targetFrame.Height) + heightOffset;
+				targetFrame.Height = (nfloat)Math.Ceiling(targetFrame.Height) + heightOffset;
 
-				if (Target.Constraints.Length > 0) {
-					foreach (var constraint in Target.Constraints) {
-						if (constraint.FirstAttribute == NSLayoutAttribute.Height) {
+				if (Target.Constraints.Length > 0)
+				{
+					foreach (var constraint in Target.Constraints)
+					{
+						if (constraint.FirstAttribute == NSLayoutAttribute.Height)
+						{
 							constraint.Constant = targetFrame.Height;
 							break;
 						}
 					}
-				} else {
+				}
+				else
+				{
 					Target.Frame = targetFrame;
 				}
 			}
 		}
 
-		override public void Dispose ()
+		public void UpdateDisplay()
+		{
+			_instance.Style(Target, StyleID, _rawText, CustomTags);
+		}
+
+		public void Dispose()
 		{
 			EnableHtmlEditing = false;
 			Target = null;
 		}
 
-		void TextEditingChanged (object sender, EventArgs e)
+		void TextEditingChanged(object sender, EventArgs e)
 		{
-			_rawText = Target.Text;
+			_rawText = _textField.Text;
 		}
 
-		void TextEditingStarted (object sender, EventArgs e)
+		void TextEditingStarted(object sender, EventArgs e)
 		{
-			_instance.StyleUITextField (Target, StyleID, _rawText, ignoreHtml: true);
+			_instance.StyleUITextField(_textField, StyleID, _rawText, ignoreHtml: true);
 		}
 
-		void TextEditingEnded (object sender, EventArgs e)
+		void TextEditingEnded(object sender, EventArgs e)
 		{
-			_instance.StyleUITextField (Target, StyleID, _rawText, CustomTags);
+			_instance.StyleUITextField(_textField, StyleID, _rawText, CustomTags);
 		}
 	}
 }

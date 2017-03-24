@@ -49,6 +49,7 @@
     <Compile Include="StringExtensions.cs" />
     <Compile Include="UITextExtensions.cs" />
     <Compile Include="ViewStyle.cs" />
+    <Compile Include="StyleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\StylesCore\src\Styles.iOS\Styles.iOS.csproj">

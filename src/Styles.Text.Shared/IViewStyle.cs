@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Styles.Text
 {
-	public interface IViewStyle
+	public interface IViewStyle:IDisposable
 	{
 		string StyleID { get; }
 
@@ -20,7 +20,5 @@ namespace Styles.Text
 		void UpdateFrame();
 
 		void UpdateDisplay();
-
-		void Dispose();
 	}
 }

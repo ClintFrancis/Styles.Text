@@ -34,10 +34,9 @@
     <Compile Include="HtmlTextStyleParser.cs" />
     <Compile Include="CssTextStyleParser.cs" />
     <Compile Include="TextStyleBase.cs" />
-    <Compile Include="ViewStyleBase.cs" />
-    <Compile Include="StyleManager.cs" />
     <Compile Include="IViewStyle.cs" />
-    <Compile Include="ViewStyle.cs" />
+    <Compile Include="IStyleManager.cs" />
+    <Compile Include="StyleManagerBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.csproj">

@@ -4,8 +4,8 @@ using System.IO;
 using System.Collections.Generic;
 using CoreGraphics;
 using System.Diagnostics;
-using Styles;
 using Styles.Text;
+using Styles;
 
 namespace TextStyleDemo.iOS
 {
@@ -49,10 +49,14 @@ namespace TextStyleDemo.iOS
 			_styleManager.Add (body, "body", textBody);
 			_styleManager.Add (entry, "body", @"hello <i>world</i>", enableHtmlEditing: true);
 
-			//body.DataDetectorTypes = UIDataDetectorType.PhoneNumber;
+			body.DataDetectorTypes = UIDataDetectorType.PhoneNumber;
 
 			// Using extension methods
 			//body.AttributedText = "Hello world <b>this is a test</b>".ToAttributedString ();
+
+			// TEMP
+			//labelOne.Style("h2", headingOne);
+			//_styleManager.Add(labelOne, "h2", headingOne);
 
 			Console.WriteLine ("Elapsed time {0}", stopwatch.ElapsedMilliseconds);
 

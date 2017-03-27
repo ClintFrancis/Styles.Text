@@ -27,6 +27,11 @@
      <file src="Styles.Text.Shared/bin/Release/Styles.Shared.dll" target="lib/Xamarin.iOS10/Styles.Shared.dll" />
      <file src="Styles.Text.iOS/bin/Release/Styles.Text.dll" target="lib/Xamarin.iOS10/Styles.Text.dll" />
 	 <file src="Styles.Text.iOS/bin/Release/Styles.Text.Shared.dll" target="lib/Xamarin.iOS10/Styles.Text.Shared.dll" />
-      
+
+	 <!-- Xamarin.Android -->
+    <file src="Styles.Text.Android/bin/Release/Styles.dll" target="lib/MonoAndroid10/Styles.dll" />
+	 <file src="Styles.Text.Android/bin/Release/Styles.Shared.dll" target="lib/MonoAndroid10/Styles.Shared.dll" />
+	 <file src="Styles.Text.Android/bin/Release/Styles.Text.dll" target="lib/MonoAndroid10/Styles.Text.dll" />
+	 <file src="Styles.Text.Android/bin/Release/Styles.Text.Shared.dll" target="lib/MonoAndroid10/Styles.Text.Shared.dll" />
    </files>
 </package>

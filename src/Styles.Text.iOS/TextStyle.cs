@@ -3,7 +3,6 @@ using UIKit;
 using Foundation;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 
 namespace Styles.Text
 {

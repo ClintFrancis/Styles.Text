@@ -10,3 +10,5 @@ samples/TextStyleDemo.Native.iOS/bin
 samples/TextStyleDemo.Native.iOS/obj
 src/Styles.Text.Core/bin
 src/Styles.Text.Core/obj
+samples/TextStyleDemo.Native.Droid/bin
+samples/TextStyleDemo.Native.Droid/obj

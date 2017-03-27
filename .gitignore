@@ -12,3 +12,6 @@ src/Styles.Text.Core/bin
 src/Styles.Text.Core/obj
 samples/TextStyleDemo.Native.Droid/bin
 samples/TextStyleDemo.Native.Droid/obj
+Styles.Text.userprefs
+TextStyleDemo.Droid.userprefs
+TextStyleDemo.iOS.userprefs

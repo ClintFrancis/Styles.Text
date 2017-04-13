@@ -298,11 +298,11 @@ namespace Styles.Text
 			if (!string.IsNullOrEmpty (style.Font))
 				stringAttribs.Font = UIFont.FromName (style.Font, fontSize);
 
-			if (!string.IsNullOrEmpty (style.Color))
-				stringAttribs.ForegroundColor = UIColor.Clear.FromHex (style.Color);
+			if (style.Color != ColorRGB.Empty)
+				stringAttribs.ForegroundColor = style.Color.ToNative();
 
-			if (!string.IsNullOrEmpty (style.BackgroundColor))
-				stringAttribs.BackgroundColor = UIColor.Clear.FromHex (style.BackgroundColor);
+			if (style.Color != ColorRGB.Empty)
+				stringAttribs.BackgroundColor = style.BackgroundColor.ToNative();
 
 			if (style.LetterSpacing > 0f)
 				stringAttribs.KerningAdjustment = style.LetterSpacing;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Styles;
 
 namespace Styles.Text
 {
@@ -131,6 +130,9 @@ namespace Styles.Text
 								}
 							}
 							curStyle.SetValue(prop.Name, parsedValues);
+							break;
+						case "ColorRGB":
+							curStyle.SetValue(prop.Name, ColorRGB.FromHex(cleanedValue));
 							break;
 						case "CssAlign":
 							curStyle.TextAlign = EnumUtils.FromDescription<CssAlign>(cleanedValue);

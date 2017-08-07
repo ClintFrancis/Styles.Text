@@ -44,18 +44,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Styles">
-      <HintPath>packages\Styles.Text.1.1.0\lib\MonoAndroid10\Styles.dll</HintPath>
-    </Reference>
-    <Reference Include="Styles.Shared">
-      <HintPath>packages\Styles.Text.1.1.0\lib\MonoAndroid10\Styles.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="Styles.Text">
-      <HintPath>packages\Styles.Text.1.1.0\lib\MonoAndroid10\Styles.Text.dll</HintPath>
-    </Reference>
-    <Reference Include="Styles.Text.Shared">
-      <HintPath>packages\Styles.Text.1.1.0\lib\MonoAndroid10\Styles.Text.Shared.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -93,6 +81,20 @@
     <AndroidAsset Include="Assets\OpenSans-CondLight.ttf" />
     <AndroidAsset Include="Assets\StyleOne.css" />
     <AndroidAsset Include="Assets\StyleTwo.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Styles.Text.Android\Styles.Text.Android.csproj">
+      <Project>{141E15BC-6A3A-4A7D-B33C-67C84EA1BE7F}</Project>
+      <Name>Styles.Text.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Styles.Text.Shared\Styles.Text.Shared.csproj">
+      <Project>{50AE51CA-5F98-4643-BB5C-3910912F4C0C}</Project>
+      <Name>Styles.Text.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\StylesCore\src\Styles.Shared\Styles.Shared.csproj">
+      <Project>{F7DE4405-3FCD-497D-B1B1-BC8351C5804B}</Project>
+      <Name>Styles.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

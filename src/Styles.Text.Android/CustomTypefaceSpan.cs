@@ -5,67 +5,69 @@ using Android.Text;
 
 namespace Styles.Text
 {
-	public class CustomTypefaceSpan : TypefaceSpan
-	{
-		readonly Typeface _typeface;
-		readonly TextStyleParameters _style;
+    public class CustomTypefaceSpan : TypefaceSpan
+    {
+        readonly Typeface _typeface;
+        readonly TextStyleParameters _style;
 
-		public CustomTypefaceSpan (String family, Typeface typeface, TextStyleParameters style) : base (family)
-		{
-			_typeface = typeface;
-			_style = style;
-		}
+        public CustomTypefaceSpan(String family, Typeface typeface, TextStyleParameters style) : base(family)
+        {
+            _typeface = typeface;
+            _style = style;
+        }
 
-		public override void UpdateDrawState (TextPaint ds)
-		{
-			ApplyCustomTypeFace (ds);
-		}
+        public override void UpdateDrawState(TextPaint ds)
+        {
+            ApplyCustomTypeFace(ds);
+        }
 
-		public override void UpdateMeasureState (TextPaint paint)
-		{
-			ApplyCustomTypeFace (paint);
-		}
+        public override void UpdateMeasureState(TextPaint paint)
+        {
+            ApplyCustomTypeFace(paint);
+        }
 
-		void ApplyCustomTypeFace (Paint paint)
-		{
-			var random = new Random ();
+        void ApplyCustomTypeFace(Paint paint)
+        {
+            var random = new Random();
 
-			// Color
-			if (!String.IsNullOrEmpty (_style.Color))
-				paint.Color = Android.Graphics.Color.White.FromHex (_style.Color);
+            // Color
+            if (_style.Color != ColorRGB.Empty)
+                paint.Color = _style.Color.ToNative();
 
-			// Italic
-			if (_style.FontStyle == CssFontStyle.Italic)
-				paint.TextSkewX = -.25f;
+            // Italic
+            if (_style.FontStyle == CssFontStyle.Italic)
+                paint.TextSkewX = -.25f;
 
-			// Weight
-			paint.FakeBoldText = (_style.FontWeight == CssFontWeight.Bold);
+            // Weight
+            paint.FakeBoldText = (_style.FontWeight == CssFontWeight.Bold);
 
-			// Text Decoration
-			paint.StrikeThruText = (_style.TextDecoration == CssDecoration.LineThrough);
-			paint.UnderlineText = (_style.TextDecoration == CssDecoration.Underline);
+            // Text Decoration
+            paint.StrikeThruText = (_style.TextDecoration == CssDecoration.LineThrough);
+            paint.UnderlineText = (_style.TextDecoration == CssDecoration.Underline);
 
-			// Letter spacing
+            // Letter spacing
 #if __ANDROID_21__
-			var space = paint.FontSpacing;
-			if (Math.Abs (_style.LetterSpacing) > 0) {
-				paint.LetterSpacing = _style.LetterSpacing;
-			}
+            var space = paint.FontSpacing;
+            if (Math.Abs(_style.LetterSpacing) > 0)
+            {
+                paint.LetterSpacing = _style.LetterSpacing;
+            }
 #endif
 
-			var flags = paint.Flags | PaintFlags.AntiAlias;// | PaintFlags.SubpixelText;
-			if (_style.TextDecoration == CssDecoration.LineThrough)
-				flags = flags | PaintFlags.StrikeThruText;
-			else if (_style.TextDecoration == CssDecoration.Underline)
-				flags = flags | PaintFlags.UnderlineText;
+            var flags = paint.Flags | PaintFlags.AntiAlias;// | PaintFlags.SubpixelText;
+            if (_style.TextDecoration == CssDecoration.LineThrough)
+                flags = flags | PaintFlags.StrikeThruText;
+            else if (_style.TextDecoration == CssDecoration.Underline)
+                flags = flags | PaintFlags.UnderlineText;
 
-			paint.Flags = flags;
+            paint.Flags = flags;
 
-			if (_typeface != null) {
-				paint.SetTypeface (_typeface);
-			}
-		}
-	}
+            if (_typeface != null)
+            {
+                paint.SetTypeface(_typeface);
+            }
+        }
+    }
 }
 
 
